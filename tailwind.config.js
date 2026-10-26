@@ -3,19 +3,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        lagoon: { DEFAULT: "#0D6872", dark: "#084B53" },
-        leaf: "#356B4A",
-        ticket: "#F7C948",
-        coral: "#E76F51",
-        sky: "#E9F4F2",
-        ink: "#173B3A",
+        lagoon: { DEFAULT: "#315A4C", dark: "#244438" },
+        leaf: "#738875",
+        ticket: "#B9975B",
+        coral: "#A96E54",
+        sky: "#F3F2EC",
+        ink: "#25312B",
       },
       fontFamily: {
         head: ["var(--font-head)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"],
       },
+      borderRadius: {
+        "2xl": "0.875rem",
+        "3xl": "1rem",
+      },
       boxShadow: {
-        soft: "0 16px 45px rgba(23, 59, 58, 0.09)",
+        soft: "0 14px 36px rgba(37, 49, 43, 0.08)",
       },
     },
   },

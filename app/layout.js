@@ -1,10 +1,10 @@
 import "./globals.css";
-import { Fredoka, Hind_Siliguri } from "next/font/google";
+import { Manrope, Hind_Siliguri } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyBookingBar from "@/components/StickyBookingBar";
 
-const headingFont = Fredoka({ subsets: ["latin"], variable: "--font-head", display: "swap" });
+const headingFont = Manrope({ subsets: ["latin"], variable: "--font-head", display: "swap" });
 const bodyFont = Hind_Siliguri({ subsets: ["latin", "bengali"], weight: ["400", "500", "600", "700"], variable: "--font-body", display: "swap" });
 
 export const metadata = {

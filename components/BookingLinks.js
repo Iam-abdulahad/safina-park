@@ -4,8 +4,8 @@ export default function BookingLinks({ message = "Hello Safina Park, I would lik
   const whatsappUrl = `https://wa.me/${contact.whatsappPhone}?text=${encodeURIComponent(message)}`;
   return (
     <div className="flex flex-wrap gap-3">
-      <a className="btn" href={`tel:${contact.phones[0]}`}>Call to book</a>
-      <a className="btn-secondary" href={whatsappUrl} target="_blank" rel="noreferrer">Ask on WhatsApp</a>
+      <a className="btn" href={`tel:${contact.phones[0]}`}>Call the park</a>
+      <a className="btn-secondary" href={whatsappUrl} target="_blank" rel="noreferrer">Enquire on WhatsApp</a>
     </div>
   );
 }

@@ -26,9 +26,9 @@ const attractionSchema = {
 };
 
 const quickLinks = [
-  { title: "Rides & attractions", description: "Pick a little adventure.", href: "/rides", mark: "01", tone: "bg-ticket" },
-  { title: "Picnic & events", description: "Make a day of it together.", href: "/picnic-events", mark: "02", tone: "bg-sky" },
-  { title: "Resort stays", description: "Stay for a slower kind of day.", href: "/stay", mark: "03", tone: "bg-leaf/15" },
+  { title: "Park & attractions", description: "Discover rides and activities.", href: "/rides", mark: "01" },
+  { title: "Picnic & events", description: "Plan a gathering for your group.", href: "/picnic-events", mark: "02" },
+  { title: "Resort & stay", description: "Explore accommodation options.", href: "/stay", mark: "03" },
 ];
 
 const experiences = [
@@ -83,55 +83,41 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(attractionSchema).replace(/</g, "\\u003c") }}
       />
 
-      <section className="wrap pb-8 pt-6 sm:pt-10 md:pb-12">
-        <div className="ticket-entry relative isolate min-h-[590px] overflow-hidden rounded-[2rem] bg-ink text-white shadow-soft sm:min-h-[620px]">
-          <Image
-            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2000&q=90"
-            alt="Family and friends spending time together outdoors"
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 90vw"
-            className="hero-image-drift -z-20 object-cover"
-          />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/95 via-ink/75 to-ink/20" />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/60 via-transparent to-ink/10" />
-          <div className="flex min-h-[590px] flex-col justify-between p-6 sm:min-h-[620px] sm:p-10 lg:p-14">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-ticket" aria-hidden="true" />
-                Godagari, Rajshahi
-              </p>
-              <span className="rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white/85 backdrop-blur">
-                A sample preview
-              </span>
+      <section className="wrap pb-8 pt-8 sm:pt-12 md:pb-12">
+        <div className="grid overflow-hidden border border-ink/10 bg-white shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-14 lg:px-14">
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-lagoon">
+              Safina Park & Resort <span className="mx-2 text-ink/30">/</span> Godagari, Rajshahi
+            </p>
+            <h1 className="max-w-xl font-head text-4xl font-semibold leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
+              A destination for days well spent.
+            </h1>
+            <p className="mt-5 max-w-lg text-base leading-7 text-ink/70 sm:text-lg">
+              Discover the park, plan a picnic or explore a resort stay. Find the right setting for your next visit.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn">Plan your visit</Link>
+              <Link href="/rides" className="btn-secondary">Explore the park</Link>
             </div>
-            <div className="max-w-2xl pb-3 sm:pb-5">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-ticket sm:text-base">
-                Safina Park & Resort
-              </p>
-              <h1 className="max-w-xl font-head text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-                Make room for a day together.
-              </h1>
-              <p className="mt-5 max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
-                A change of pace, a little fresh air, and time with your favorite people. Find your kind of day in Godagari.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/rides" className="btn min-h-14 px-7 shadow-lg shadow-ink/20">
-                  Explore the park <span aria-hidden="true">↗</span>
-                </Link>
-                <Link href="/contact" className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/40 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition-colors hover:bg-white hover:text-ink">
-                  Plan your visit
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/25 pt-4 text-sm text-white/85">
-              <span><span className="mr-2 text-ticket" aria-hidden="true">✦</span>Rides & open-air fun</span>
-              <span><span className="mr-2 text-ticket" aria-hidden="true">✦</span>Picnics & gatherings</span>
-              <span><span className="mr-2 text-ticket" aria-hidden="true">✦</span>Resort stays</span>
+            <div className="mt-9 border-t border-ink/10 pt-5 text-sm text-ink/65">
+              <span className="font-semibold text-ink">Park hours</span>
+              <span className="mx-2 text-ink/30">/</span>
+              {contact.parkHours}
+              <p className="mt-1 text-xs text-ink/45">Sample schedule — please confirm before travelling.</p>
             </div>
           </div>
-          <div aria-hidden="true" className="soft-float absolute bottom-24 right-8 hidden rounded-2xl border border-white/20 bg-white/15 p-4 text-sm font-semibold text-white shadow-xl backdrop-blur-md lg:block">
-            Good days start with good company
+          <div className="relative min-h-[300px] bg-sky sm:min-h-[420px] lg:min-h-[540px]">
+            <Image
+              src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=1800&q=90"
+              alt="A shaded walking path through a green park"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/65 to-transparent p-5 pt-16 sm:p-7 sm:pt-20">
+              <p className="text-sm font-medium text-white/90">Park, picnic and resort experiences</p>
+            </div>
           </div>
         </div>
       </section>
@@ -140,13 +126,13 @@ export default function Home() {
         <div className="grid gap-3 md:grid-cols-3">
           {quickLinks.map((item, index) => (
             <ScrollReveal key={item.href} delay={index * 90}>
-              <Link href={item.href} className={`group flex h-full min-h-32 items-center justify-between gap-4 rounded-3xl ${item.tone} p-5 transition-transform duration-300 hover:-translate-y-1 sm:p-6`}>
+              <Link href={item.href} className="group flex h-full min-h-32 items-center justify-between gap-4 border border-ink/10 bg-white p-5 transition-colors hover:border-lagoon/40 sm:p-6">
                 <div>
-                  <span className="text-xs font-bold tracking-widest text-ink/50">{item.mark} / EXPLORE</span>
+                  <span className="text-xs font-bold tracking-widest text-lagoon/70">{item.mark} / EXPLORE</span>
                   <h2 className="mt-2 font-head text-xl font-semibold text-ink sm:text-2xl">{item.title}</h2>
                   <p className="mt-1 text-sm text-ink/70">{item.description}</p>
                 </div>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/80 text-xl text-ink transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">↗</span>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-ink/15 text-lg text-ink transition-colors group-hover:border-lagoon group-hover:bg-lagoon group-hover:text-white" aria-hidden="true">→</span>
               </Link>
             </ScrollReveal>
           ))}
@@ -215,7 +201,7 @@ export default function Home() {
       <section className="wrap section-space">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <ScrollReveal>
-            <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] bg-lagoon sm:min-h-[460px]">
+            <div className="relative min-h-[360px] overflow-hidden rounded-2xl bg-lagoon sm:min-h-[460px]">
               <Image
                 src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85"
                 alt="Sunlight reflected on calm water"
@@ -229,8 +215,8 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <div className="lg:py-8">
-              <p className="eyebrow">A little more time together</p>
-              <h2 className="h2">Picnics, celebrations and a place to stay.</h2>
+              <p className="eyebrow">Picnics, events and stays</p>
+              <h2 className="h2">Bring your group together.</h2>
               <p className="mt-5 max-w-xl leading-7 text-ink/70">
                 Planning a family day, school outing or team gathering? Explore the options, then ask the team about current arrangements and availability.
               </p>
@@ -289,7 +275,7 @@ export default function Home() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="mb-3 font-semibold text-ticket">A little look around</p>
-                <h2 className="font-head text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">Save a few moments for later.</h2>
+                <h2 className="font-head text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">A look around the park and resort.</h2>
               </div>
               <Link href="/gallery" className="w-fit font-semibold text-white underline underline-offset-4 hover:text-ticket">Browse the gallery <span aria-hidden="true">→</span></Link>
             </div>
@@ -320,7 +306,7 @@ export default function Home() {
           <ScrollReveal>
             <div className="lg:sticky lg:top-36">
               <p className="eyebrow">Before you set off</p>
-              <h2 className="h2">A few things people ask.</h2>
+              <h2 className="h2">Visitor information.</h2>
               <p className="mt-4 leading-7 text-ink/70">Need a detail that isn’t here? Reach out to the team and check the latest information before travelling.</p>
               <Link className="mt-6 inline-flex font-semibold text-lagoon underline underline-offset-4 hover:text-coral" href="/contact">Get in touch <span className="ml-2" aria-hidden="true">→</span></Link>
             </div>

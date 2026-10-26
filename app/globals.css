@@ -14,11 +14,13 @@ html {
 body {
   @apply bg-sky font-body text-ink antialiased;
   overflow-x: clip;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 ::selection {
-  background: #f7c948;
-  color: #173b3a;
+  background: #d9d0b7;
+  color: #25312b;
 }
 
 @layer components {
@@ -27,23 +29,23 @@ body {
   }
 
   .section-space {
-    @apply py-16 md:py-24;
+    @apply py-14 md:py-20;
   }
 
   .h2 {
-    @apply font-head text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl;
+    @apply font-head text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-[2.75rem];
   }
 
   .btn {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-coral px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-ink focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-ticket;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-lagoon px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ticket;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-lagoon/20 bg-white px-6 py-3 text-center font-semibold text-lagoon transition-colors hover:border-lagoon hover:bg-lagoon hover:text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-ticket;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-ink/20 bg-white px-6 py-3 text-center font-semibold text-ink transition-colors hover:border-lagoon hover:bg-lagoon hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ticket;
   }
 
   .eyebrow {
-    @apply mb-3 inline-flex items-center gap-2 font-semibold text-lagoon;
+    @apply mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-lagoon;
   }
 }
 
@@ -52,51 +54,18 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 3px solid #f7c948;
+  outline: 2px solid #b9975b;
   outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .ticket-entry {
-    animation: ticket-arrive 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  }
-
-  .hero-image-drift {
-    animation: hero-drift 18s ease-in-out infinite alternate;
-  }
-
   .scroll-reveal.is-visible {
-    animation: reveal-rise 700ms cubic-bezier(0.2, 0.75, 0.25, 1) var(--reveal-delay, 0ms) both;
-  }
-
-  .soft-float {
-    animation: soft-float 5s ease-in-out infinite;
-  }
-
-  @keyframes ticket-arrive {
-    from {
-      opacity: 0;
-      transform: translateY(14px) rotate(-1deg);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) rotate(0);
-    }
-  }
-
-  @keyframes hero-drift {
-    from { transform: scale(1.02) translateY(0); }
-    to { transform: scale(1.08) translateY(-0.5rem); }
+    animation: reveal-rise 480ms ease-out var(--reveal-delay, 0ms) both;
   }
 
   @keyframes reveal-rise {
-    from { opacity: 0; transform: translateY(22px); }
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes soft-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-7px); }
   }
 }
 

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="wrap grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <Link href="/" className="font-head text-2xl font-semibold">Safina Park & Resort</Link>
-          <p className="mt-3 max-w-xs text-sm leading-6 text-white/75">A day of rides, fresh air and time together in Godagari, Rajshahi.</p>
+          <p className="mt-3 max-w-xs text-sm leading-6 text-white/70">A park and resort destination in Godagari, Rajshahi.</p>
           <a href={contact.mapsUrl} target="_blank" rel="noreferrer" className="mt-4 inline-block text-sm font-semibold text-ticket underline-offset-4 hover:underline">Get directions</a>
         </div>
         <div>
