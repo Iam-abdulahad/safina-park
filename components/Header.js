@@ -27,18 +27,27 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink/10 bg-white/95 backdrop-blur">
+      <div className="bg-ink px-4 py-2 text-center text-xs font-medium text-white/90">
+        <span className="mr-2 inline-block h-2 w-2 rounded-full bg-ticket align-middle" aria-hidden="true" />
+        {bangla
+          ? "ডেমো প্রিভিউ — ছবি, সময়সূচি ও যোগাযোগের তথ্য নমুনা; ভ্রমণের আগে নিশ্চিত করুন।"
+          : "Demo preview — photos, hours and contact details are sample content; please confirm before visiting."}
+      </div>
       <div className="border-b border-ink/10 bg-sky">
         <div className="wrap flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-2 text-xs font-medium text-ink sm:text-sm">
-          <p>Park: {contact.parkHours} <span className="mx-2 text-ink/40">·</span> Resort: {contact.resortHours}</p>
+          <p>
+            Park: {contact.parkHours}
+            <span className="hidden sm:inline"><span className="mx-2 text-ink/40">·</span>Resort: {contact.resortHours}</span>
+          </p>
           <div className="flex flex-wrap items-center gap-x-3">
             {contact.phones.map((phone, index) => (
-              <span key={phone} className="flex items-center gap-3">
+              <span key={phone} className={`flex items-center gap-3 ${index > 0 ? "hidden sm:flex" : ""}`}>
                 {index > 0 && <span aria-hidden="true" className="text-ink/40">·</span>}
                 <a href={`tel:${phone}`} className="hover:text-coral">{phone}</a>
               </span>
             ))}
             <span aria-hidden="true" className="hidden text-ink/40 sm:inline">·</span>
-            <span>{contact.location}</span>
+            <span className="hidden md:inline">{contact.location}</span>
           </div>
         </div>
       </div>
