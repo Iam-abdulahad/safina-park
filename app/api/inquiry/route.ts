@@ -36,8 +36,8 @@ const eventSchema = z.object({
 
 const generalSchema = z.object({
   name: z.string().min(1),
-  phone: z.string().optional().regex(/^(?:\+?88)?01[3-9]\d{8}$/).or(z.undefined()),
-  email: z.string().optional().email().or(z.undefined()),
+  phone: z.string().regex(/^(?:\+?88)?01[3-9]\d{8}$/).optional(),
+  email: z.string().email().optional(),
   message: z.string().min(1),
 }).refine((data) => data.phone || data.email, {
   message: 'Either phone or email must be provided',
