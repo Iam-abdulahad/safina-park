@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import BookingLinks from "@/components/BookingLinks";
+import HomeHero from "@/components/HomeHero";
 import RideCard from "@/components/RideCard";
 import ScrollReveal from "@/components/ScrollReveal";
 import { contact, faqs, galleryItems, packages, rides } from "@/lib/data";
@@ -83,44 +84,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(attractionSchema).replace(/</g, "\\u003c") }}
       />
 
-      <section className="wrap pb-8 pt-8 sm:pt-12 md:pb-12">
-        <div className="grid overflow-hidden border border-ink/10 bg-white shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-14 lg:px-14">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-lagoon">
-              Safina Park & Resort <span className="mx-2 text-ink/30">/</span> Godagari, Rajshahi
-            </p>
-            <h1 className="max-w-xl font-head text-4xl font-semibold leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
-              A destination for days well spent.
-            </h1>
-            <p className="mt-5 max-w-lg text-base leading-7 text-ink/70 sm:text-lg">
-              Discover the park, plan a picnic or explore a resort stay. Find the right setting for your next visit.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn">Plan your visit</Link>
-              <Link href="/rides" className="btn-secondary">Explore the park</Link>
-            </div>
-            <div className="mt-9 border-t border-ink/10 pt-5 text-sm text-ink/65">
-              <span className="font-semibold text-ink">Park hours</span>
-              <span className="mx-2 text-ink/30">/</span>
-              {contact.parkHours}
-              <p className="mt-1 text-xs text-ink/45">Sample schedule — please confirm before travelling.</p>
-            </div>
-          </div>
-          <div className="relative min-h-[300px] bg-sky sm:min-h-[420px] lg:min-h-[540px]">
-            <Image
-              src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=1800&q=90"
-              alt="A shaded walking path through a green park"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/65 to-transparent p-5 pt-16 sm:p-7 sm:pt-20">
-              <p className="text-sm font-medium text-white/90">Park, picnic and resort experiences</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHero location={contact.location} parkHours={contact.parkHours} />
 
       <section className="wrap pb-8 md:pb-12" aria-label="Explore the park">
         <div className="grid gap-3 md:grid-cols-3">
